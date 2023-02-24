@@ -1,0 +1,15 @@
+main {
+    min-height: 80vh;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.navbar {
+    height: auto;
+}
+
+img {
+    width: 33%;
+    height: 33%;
+    object-fit: cover;
+}
