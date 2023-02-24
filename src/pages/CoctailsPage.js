@@ -7,7 +7,7 @@ const CoctailsPage = () => {
 
     return (
         <>
-            <h2>Here you can see your favorite coctails:</h2>
+            <h2>Here you can see your favorite cocktails:</h2>
             <FavoriteCoctailsList drinks={drinks} />
         </>
     );

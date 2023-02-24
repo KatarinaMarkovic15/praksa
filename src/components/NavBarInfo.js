@@ -13,7 +13,7 @@ const NavBarInfo = () => {
     return (
     <>
         <p style={{color: 'white', margin: '3px'}}>Favorite cocktails:&nbsp;&nbsp;</p>
-        <Badge bg="secondary">{numberOfDrinksItems}</Badge>
+        <Badge bg="warning">{numberOfDrinksItems}</Badge>
     </>
     ); 
 };

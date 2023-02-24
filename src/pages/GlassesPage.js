@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Alert, Spinner } from 'react-bootstrap';
 
 import GlassesList from '../components/GlassesList';
 import { getGlasses } from '../Service/Service';
@@ -35,13 +36,13 @@ function GlassesPage() {
     if(!loading) {
         return (
             <>
-                { data ? <GlassesList glasses={data}/> : <p>{errorMsg}</p> } 
+                { data ? <GlassesList glasses={data}/> : <Alert variant='danger'>{errorMsg}</Alert> } 
             </>
         );
     } else {
         return (
             <>
-                <p>Loading...</p>
+                <Spinner animation="border" />
             </>
         );
     }

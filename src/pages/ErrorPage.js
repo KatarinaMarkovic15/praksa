@@ -1,5 +1,6 @@
 import NavBarComp from '../components/NavBarComp';
 import FootBarComp from '../components/FootBarComp';
+import { Alert } from 'react-bootstrap';
 
 function ErrorPage() {
     return (
@@ -7,7 +8,7 @@ function ErrorPage() {
       <NavBarComp />
         <main>
           <h1>An error occurred!</h1>
-          <p>Could not find this page!</p>
+          <Alert variant='danger'>Could not find this page!</Alert>
         </main>
         <FootBarComp />
       </>

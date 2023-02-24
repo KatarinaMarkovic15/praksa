@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { getLookup } from '../Service/Service';
 
 import Form from 'react-bootstrap/Form';
-import { Button, Col, Container, Row, Card, ListGroup } from 'react-bootstrap';
+import { Button, Col, Container, Row, Card, ListGroup, Alert } from 'react-bootstrap';
 import { Table } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -64,7 +64,7 @@ function CoctailDetailPage() {
             let str = `strIngredient${i+1}`;
             result.push(
                 <>
-                 <Card style={{ width: '18rem', margin: 'auto' }}>
+                 <Card style={{ width: '18rem', margin: 'auto'}}>
                     {item[str] === null ? <></> : 
                     <ListGroup variant="flush">
                         <ListGroup.Item>{item[str]}</ListGroup.Item>
@@ -99,20 +99,32 @@ function CoctailDetailPage() {
                                     <td>{item.strCategory}</td>
                                 </tr>
                                 <tr>
-                                    <th style={{backgroundColor: '#ffbf80', display: 'flex', height: '500px', alignItems: 'center', justifyContent: 'center'}}>Ingredients</th>
+                                    <th style={{backgroundColor: '#ffbf80', verticalAlign: 'middle'}}>Ingredients</th>
                                     <td>{getImages(item)}</td>
                                 </tr>
                                 <tr>
                                     <th style={{backgroundColor: '#ffbf80'}}>Instructions</th>
-                                    <td></td>
+                                    <td>
+                                    <Form.Select onChange={changeHandler}>
+                                        <option value={item.strInstructions}>English</option>
+                                        <option value={item.strInstructionsES}>Spanish</option>
+                                        <option value={item.strInstructionsDE}>German</option>
+                                        <option value={item.strInstructionsFR}>French</option>
+                                        <option value={item.strInstructionsIT}>Italian</option>
+                                    </Form.Select>
+                                    <p className='fst-italic'>{instructions}</p>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th style={{backgroundColor: '#ffbf80'}}>Glasses</th>
                                     <td>{item.strGlass}</td>
                                 </tr>
                                 <tr>
-                                    <th style={{backgroundColor: '#ffbf80', display: 'flex', height: '500px', alignItems: 'center', justifyContent: 'center'}}>Image</th>
+                                    <th style={{backgroundColor: '#ffbf80', verticalAlign: 'middle'}}>Image</th>
                                     <td><img className='shadow' alt='Slika' src={`${item.strDrinkThumb}`} style={{height: '13%', width: '33%'}}/></td>
+                                </tr>
+                                <tr>
+                                    <td  style={{backgroundColor: '#ffbf80'}} colSpan={2}> <Button variant='secondary' onClick={() => clickHandler(item)}>{postoji ? 'Add to favorites' : 'Remove from favorites'}</Button></td>
                                 </tr>
                             </tbody>
                             ))}
@@ -120,46 +132,10 @@ function CoctailDetailPage() {
                     </Col>
                 </Row>
             </Container>
-        : <p>{errorMsg}</p>}
+        : <Alert variant='danger'>{errorMsg}</Alert>}
         
         </>
       );
-
-    // return (
-    //     <>
-    //         {data ? 
-    //         <div>
-    //             <ul>
-    //                 {data.map((item) => (
-    //                     <li key={item.idDrink}>
-    //                         <div>
-    //                         <h1>{item.strDrink}</h1>
-    //                         <p>{item.strAlcoholic}</p>
-    //                         <p>{item.strCategory}</p>
-    //                         <h2>Ingredients:</h2>
-
-    //                         {getImages(item)}
-
-                            // <Form.Select onChange={changeHandler}>
-                            //     <option value={item.strInstructions}>English</option>
-                            //     <option value={item.strInstructionsES}>Spanish</option>
-                            //     <option value={item.strInstructionsDE}>German</option>
-                            //     <option value={item.strInstructionsFR}>French</option>
-                            //     <option value={item.strInstructionsIT}>Italian</option>
-                            // </Form.Select>
-                            // <p>{instructions}</p>
-    //                         <p>{item.strGlass}</p>
-    //                         <img alt='Slika' src={`${item.strDrinkThumb}`} style={{width: '33%', objectFit: 'cover'}}/>
-    //                         <br></br><br></br>
-    //                         <Button onClick={() => clickHandler(item)}>{postoji ? 'Add to favorites' : 'Remove from favorites'}</Button>
-    //                         </div>
-    //                     </li>
-    //                 ))}
-    //             </ul>
-    //         </div> : <p>{errorMsg}</p>       
-    //         }
-    //     </>
-    // );
 };
 
 export default CoctailDetailPage;

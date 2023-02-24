@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Alert, Spinner } from 'react-bootstrap';
 
 import CategoriesList from '../components/CategoriesList';
 import { getCategories } from '../Service/Service';
@@ -35,13 +36,13 @@ function CategoriesPage() {
     if(!loading) {
         return (
             <>
-                { data ? <CategoriesList categories={data}/> : <p>{errorMsg}</p> }      
+                { data ? <CategoriesList categories={data}/> : <Alert variant='danger'>{errorMsg}</Alert> }      
             </>
         );
     } else {
         return (
             <>
-                <p>Loading...</p>
+                <Spinner animation="border" />
             </>
         );
     }

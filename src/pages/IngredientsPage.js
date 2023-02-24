@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Alert, Spinner } from 'react-bootstrap';
 
 import IngredientsList from '../components/IngredientsList';
 import { getIngredients } from '../Service/Service';
@@ -35,13 +36,13 @@ function IngredientsPage() {
     if(!loading) {
         return (
             <>
-                { data ? <IngredientsList ingredients={data}/> : <p>{errorMsg}</p> }      
+                { data ? <IngredientsList ingredients={data}/> : <Alert variant='danger'>{errorMsg}</Alert> }      
             </>
         );
     } else {
         return (
             <>
-                <p>Loading...</p>
+                <Spinner animation="border" />
             </>
         );
     }

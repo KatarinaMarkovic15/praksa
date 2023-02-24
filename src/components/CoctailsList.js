@@ -22,20 +22,6 @@ function CoctailsList(props) {
                   ))}
              </Row>
         </Container>
-            {/* <div className={classes.coctails}>
-            <h1>All coctails</h1>
-            <ul className={classes.list}>
-                {coctails.map((item) => (
-                    <li key={item.idDrink} className={classes.item}>
-                        <div className={classes.content}>
-                            <Link to={`/coctails/${item.idDrink}`}>{item.strDrink}</Link>
-                            <br></br>
-                            <img alt="Slika" src={`${item.strDrinkThumb}`} />
-                        </div>
-                    </li>
-                ))}
-            </ul>
-        </div> */}
         </>
     );
 };

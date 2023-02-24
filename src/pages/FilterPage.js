@@ -1,5 +1,5 @@
 import Form from 'react-bootstrap/Form';
-import { Table } from 'react-bootstrap';
+import { Alert, Table } from 'react-bootstrap';
 
 import { useState, useEffect } from 'react';
 
@@ -121,18 +121,30 @@ const FilterPage = () => {
                     params.g = copyFilters.g;
 
                     setColorOnChangeGlass('#ffbf80');
+                    setColorOnChangeCategory('#e6e6e6');
+                    setColorOnChangeIngredient('#e6e6e6');
+                    setColorOnChangeAlcoholic('#e6e6e6');
                 } else if(option === selects.c) {
                     params.c = copyFilters.c;
 
                     setColorOnChangeCategory('#ffbf80');
+                    setColorOnChangeGlass('#e6e6e6');
+                    setColorOnChangeIngredient('#e6e6e6');
+                    setColorOnChangeAlcoholic('#e6e6e6');
                 } else if(option === selects.i) {
                     params.i = copyFilters.i;
 
                     setColorOnChangeIngredient('#ffbf80');
+                    setColorOnChangeGlass('#e6e6e6');
+                    setColorOnChangeCategory('#e6e6e6');
+                    setColorOnChangeAlcoholic('#e6e6e6');
                 } else if(option === selects.a) {
                     params.a = copyFilters.a;
 
                     setColorOnChangeAlcoholic('#ffbf80');
+                    setColorOnChangeGlass('#e6e6e6');
+                    setColorOnChangeCategory('#e6e6e6');
+                    setColorOnChangeIngredient('#e6e6e6');
                 }
 
                 
@@ -160,13 +172,13 @@ const FilterPage = () => {
     };
 
     if(!glasses) {
-        return <p>{errorMsgGlasses}</p>
+        return <Alert variant='danger'>{errorMsgGlasses}</Alert>
     } else if(!categories) {
-        return  <p>{errorMsgCategories}</p>
+        return <Alert variant='danger'>{errorMsgCategories}</Alert>
     } else if(!ingredients) {
-        return <p>{errorMsgIngredients}</p> 
+        return <Alert variant='danger'>{errorMsgIngredients}</Alert>
     } else if(!alcoholic) {
-        return <p>{errorMsgAlcoholic}</p>
+        return <Alert variant='danger'>{errorMsgAlcoholic}</Alert>
     }
     
     return (
@@ -223,7 +235,7 @@ const FilterPage = () => {
                    </tr>
                </tbody>
             </Table>
-           {coctails ? <CoctailsList allCoctails={coctails}/> : <p>{errorMsg}</p>} 
+           {coctails ? <CoctailsList allCoctails={coctails}/> : <Alert variant='danger'>{errorMsg}</Alert>} 
            
         </>);    
 };
