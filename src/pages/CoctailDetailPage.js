@@ -6,9 +6,13 @@ import { getLookup } from '../Service/Service';
 import Form from 'react-bootstrap/Form';
 import { Button, Col, Container, Row, Card, ListGroup, Alert } from 'react-bootstrap';
 import { Table } from 'react-bootstrap';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import { drinksActions } from '../store/index.js';
+
+
 
 function CoctailDetailPage() {
     const [data, setData] = useState([]);
@@ -87,6 +91,14 @@ function CoctailDetailPage() {
                             {data.map((item) => (
                                 <tbody>
                                 <tr>
+                                    <td style={{backgroundColor: '#ffbf80'}} colSpan={2}>
+                                        {postoji ?  
+                                            <><Button style={{ float: 'right'}} variant='warning' onClick={() => clickHandler(item)}><i class="bi bi-bookmark-star-fill"></i></Button><p className='fst-italic' style={{ float: 'right', marginTop: '8px'}}>Add to favorites&nbsp;&nbsp;</p></> :
+                                            <><Button style={{ float: 'right'}} variant='warning' onClick={() => clickHandler(item)}><i class="bi bi-bookmark-star"></i></Button><p className='fst-italic' style={{ float: 'right', marginTop: '8px'}}>Remove from favorites&nbsp;&nbsp;</p></>
+                                        }
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th style={{backgroundColor: '#ffbf80'}}>Name</th>
                                     <td><b>{item.strDrink}</b></td>
                                 </tr>
@@ -122,9 +134,6 @@ function CoctailDetailPage() {
                                 <tr>
                                     <th style={{backgroundColor: '#ffbf80', verticalAlign: 'middle'}}>Image</th>
                                     <td><img className='shadow' alt='Slika' src={`${item.strDrinkThumb}`} style={{height: '13%', width: '33%'}}/></td>
-                                </tr>
-                                <tr>
-                                    <td  style={{backgroundColor: '#ffbf80'}} colSpan={2}> <Button variant='secondary' onClick={() => clickHandler(item)}>{postoji ? 'Add to favorites' : 'Remove from favorites'}</Button></td>
                                 </tr>
                             </tbody>
                             ))}
