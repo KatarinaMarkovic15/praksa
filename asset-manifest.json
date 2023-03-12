@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/praksa/static/css/main.d43fc0d3.css",
+    "main.js": "/praksa/static/js/main.2d0f3aed.js",
+    "static/media/bootstrap-icons.woff?": "/praksa/static/media/bootstrap-icons.6959d0d983ee318f8880.woff",
+    "static/media/bootstrap-icons.woff2?": "/praksa/static/media/bootstrap-icons.b2e5aab643c6f0fd2da6.woff2",
+    "index.html": "/praksa/index.html",
+    "main.d43fc0d3.css.map": "/praksa/static/css/main.d43fc0d3.css.map",
+    "main.2d0f3aed.js.map": "/praksa/static/js/main.2d0f3aed.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d43fc0d3.css",
+    "static/js/main.2d0f3aed.js"
+  ]
+}
